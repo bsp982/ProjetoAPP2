@@ -1,0 +1,99 @@
+<ion-header>
+  <ion-toolbar style="padding-left: 5%" color="primary">
+    <ion-buttons slot="start">
+      <ion-icon name="arrow-back-outline" style="color: white" (click)="dismiss()"></ion-icon>
+    </ion-buttons>
+
+    <ion-title>Cadastrar</ion-title>
+
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding"  fullscreen>
+
+  <ion-grid class="ion-padding" >
+
+    <form>
+
+      <ion-item>
+        <ion-label>Eu sou...</ion-label>
+        <ion-select value="selecione">
+          <ion-select-option value="produtor">Produtor</ion-select-option>
+          <ion-select-option value="cliente">Cliente</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <div class="clear"></div>
+
+      <ion-item class="input-cpfOuCnpj">
+        <ion-label position="floating">CPF/CNPJ</ion-label>
+        <ion-input mask="999.999.999-99" class="ion-text-lowercase" type="text" name="cpfOuCnpj" [(ngModel)]="usuario.cpfOuCnpj"
+        ></ion-input>
+      </ion-item>
+
+      <div class="clear"></div>
+
+      <ion-item class="input-nome">
+        <ion-label position="floating">Nome</ion-label>
+        <ion-input class="ion-text" type="text" name="nome" [(ngModel)]="usuario.nome"
+        ></ion-input>
+      </ion-item>
+      <div class="clear"></div>
+
+      <ion-item>
+        <ion-label position="floating">Email</ion-label>
+        <ion-input class="ion-text-lowercase" type="email" name="email" (focusout)="focusoutEmail($event)" [(ngModel)]="usuario.email"
+        ></ion-input>
+      </ion-item>
+      <div class="clear"></div>
+
+      <p class="form-error" *ngIf="emailErroVisible">* Email Invalido.</p>
+
+
+      <ion-item class="input-telefone">
+        <ion-label position="floating">Telefone/Whatsapp</ion-label>
+        <ion-input class="ion-text" type="text" name="nome" [(ngModel)]="usuario.telefone"
+        ></ion-input>
+      </ion-item>
+      <div class="clear"></div>
+
+
+      <ion-item>
+        <ion-label position="floating">Senha</ion-label>
+        <ion-input [type]="tipo ? 'text' : 'password'" name="senha" [(ngModel)]="usuario.senha">
+          <ion-fab horizontal="end" vertical="end">
+            <ion-button class="ocultarSenha" fill="clear" type="button" (click)="exibiOcultarSenha()">
+              <ion-icon style="color:black" [name]="tipo ? 'eye-off-outline' : 'eye-outline'"></ion-icon>
+            </ion-button>
+          </ion-fab>
+        </ion-input>
+      </ion-item>
+      <div class="clear"></div>
+
+      <ion-item>
+        <ion-label position="floating">Confirmar senha</ion-label>
+        <ion-input [type]="tipoConfirmaSenha ? 'text' : 'password'" name="confirmaSenha" [(ngModel)]="confirmaSenha"
+                   (focusout)="focusout($event)">
+          <ion-fab horizontal="end" vertical="end">
+            <ion-button class="ocultarSenha" fill="clear" type="button" (click)="exibirConfirmaSenha()">
+              <ion-icon style="color:black;" [name]="tipoConfirmaSenha ? 'eye-off-outline' : 'eye-outline'"></ion-icon>
+            </ion-button>
+          </ion-fab>
+        </ion-input>
+      </ion-item>
+
+      <div class="clear"></div>
+
+      <p class="form-error" *ngIf="senhaIguaiserrovisible">* Senhas diferentes.</p>
+
+
+      <ion-fab vertical="end" horizontal="end">
+        <ion-fab-button class="button-submit" color="light" type="submit" (click)="cadastrarCidade()">
+          <ion-icon color="primary" name="arrow-forward"></ion-icon>
+        </ion-fab-button>
+      </ion-fab>
+
+      <div class="clear"></div>
+    </form>
+
+  </ion-grid>
+</ion-content>

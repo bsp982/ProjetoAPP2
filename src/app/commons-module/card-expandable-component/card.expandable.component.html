@@ -1,0 +1,13 @@
+<ion-card class="lista-cards">
+  <ion-card-header (click)="expanded = !expanded">
+    <ion-icon size="small" [color]="colorIcon" [name]="expanded ? iconUp : iconDown"></ion-icon>
+    <ion-card-title> {{cardTitle}}
+      <ng-content select="[header]"></ng-content>
+    </ion-card-title>
+  </ion-card-header>
+
+  <ion-card-content #expandWrapper class='expand-wrapper' [class.collapsed]="!expanded">
+    <ng-content select="[content]"></ng-content>
+  </ion-card-content>
+</ion-card>
+

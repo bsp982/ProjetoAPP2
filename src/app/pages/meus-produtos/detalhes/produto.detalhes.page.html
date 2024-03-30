@@ -1,0 +1,31 @@
+<!--todo ainda verificar essa tela fora do padrao de codigo -->
+
+<ion-content>
+  <div class="header">
+    <ion-buttons>
+      <ion-button (click)="backHome()">
+        <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </div>
+
+  <div class="card">
+    <div class="image">
+      <ion-img [src]="produto.imageUrl"></ion-img>
+    </div>
+
+    <div class="card-content">
+      <div class="card-title">
+        <h1 class="ion-no-margin">{{produto.nome}}</h1>
+        <p class="ion-no-margin">{{produto.preco |currency:'BRL'}}</p>
+      </div>
+    </div>
+
+    <div class="about">
+      <h1>About</h1>
+      <p>{{produto.descricao}}</p>
+    </div>
+  </div>
+
+</ion-content>
+

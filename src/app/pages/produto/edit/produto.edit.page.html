@@ -1,0 +1,61 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button style="color: white" menu="main-menu"></ion-menu-button>
+    </ion-buttons>
+
+    <ion-title>Cadastro Produto</ion-title>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-grid>
+
+    <form>
+      <ion-item>
+      <img [src]="produto?.imageUrl || 'assets/imgs/imgNotFound.png'">
+      </ion-item>
+
+      <ion-item >
+        <ion-button style="width: 100vw" (click)="getGalleryPicture()">Adicionar Imagem</ion-button>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Categorias</ion-label>
+        <ion-select class="multiple" [(ngModel)]="produto.categoria" (ngModelChange)="onCategoriaChange($event)"
+                    name="categoria">
+          <ion-select-option *ngFor="let item of categorias" [value]="item.nome">{{item.nome}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Nome</ion-label>
+        <ion-input type="text" name="nome" [(ngModel)]="produto.nome"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Preço</ion-label>
+        <ion-input type="number" name="preco" [(ngModel)]="produto.preco"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Quantidade</ion-label>
+        <ion-input type="number" name="quantidade" [(ngModel)]="produto.quantidade"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Desconto</ion-label>
+        <ion-input type="number" name="desconto" [(ngModel)]="produto.desconto"></ion-input>
+      </ion-item>
+
+    </form>
+  </ion-grid>
+</ion-content>
+
+<ion-fab vertical="bottom" horizontal="end" (click)="salvar()">
+  <ion-fab-button color="primary">
+    <ion-icon name="checkmark-outline"></ion-icon>
+  </ion-fab-button>
+</ion-fab>

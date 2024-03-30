@@ -1,0 +1,46 @@
+<ion-content style="background-color: var(--ion-color-secondary)">
+    <ion-grid>
+
+        <img [src]="'assets/imgs/logo.png'" style="padding-top: 20px"/>
+
+        <form>
+            <ion-item>
+                <ion-label position="floating">CPF ou CNPJ</ion-label>
+                <ion-input class="ion-text-lowercase" type="text" name="cpf" [(ngModel)]="usuario.username"></ion-input>
+            </ion-item>
+
+            <div class="clear"></div>
+
+            <ion-item>
+                <ion-label position="floating">Senha</ion-label>
+                <ion-input class="input-senha" [type]="tipo ? 'text' : 'password'" name="senha"
+                           [(ngModel)]="usuario.senha">
+                    <ion-fab horizontal="end" vertical="end">
+                        <ion-button class="ocultarSenha" fill="clear" type="button" (click)="exibiOcultarSenha()">
+                            <ion-icon style="color:white" [name]="tipo ? 'eye-off-outline' : 'eye-outline'"></ion-icon>
+                        </ion-button>
+                    </ion-fab>
+                </ion-input>
+            </ion-item>
+            <div class="clear"></div>
+
+            <ion-fab vertical="end" horizontal="end">
+                <ion-fab-button class="button-submit" color="primary" type="submit" (click)="acessar()">
+                    <ion-spinner name="crescent" *ngIf="isloading"></ion-spinner>
+                    <ion-icon name="arrow-forward-outline" *ngIf="!isloading"></ion-icon>
+                </ion-fab-button>
+            </ion-fab>
+            <div class="clear"></div>
+
+            <button class="esqueciMinhaSenha" (click)="recoveryPassword()">Esqueci minha senha</button>
+        </form>
+
+    </ion-grid>
+
+
+    <ion-footer style="position:fixed; bottom:0; ">
+        <ion-toolbar style="text-align: center;width: 100vw;">
+            <ion-title   style="color: white" (click)="cadastrarSe()">Quero me cadastrar</ion-title>
+        </ion-toolbar>
+    </ion-footer>
+</ion-content>

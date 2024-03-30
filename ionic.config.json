@@ -1,0 +1,7 @@
+{
+  "name": "Gusteen Alimentos",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

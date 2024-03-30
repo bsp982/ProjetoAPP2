@@ -1,0 +1,119 @@
+<ion-header>
+  <ion-toolbar color="primary">
+
+    <ion-buttons slot="start">
+      <ion-menu-button style="color: white" menu="main-menu"></ion-menu-button>
+    </ion-buttons>
+
+    <ion-title class="ion-text-center">Perfil</ion-title>
+    <ion-buttons slot="end">
+      <ion-button fill="clear" size="large" (click)="edicaoUsuario()">
+        <ion-icon name="create-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-grid>
+    <ion-row>
+
+      <ion-col style="float: left">
+        <ion-avatar style="margin-top: 20px; width: 60px; height: 60px;">
+          <img class="circle" [src]="cliente?.imageUrl || 'assets/imgs/avatar-blank.png'">
+          <ion-icon (click)="editarImagem()" style="float:right; margin-right: 10%" name="create"></ion-icon>
+        </ion-avatar>
+      </ion-col>
+
+      <ion-col style="float: right; width: 80vw">
+        <h2 class="ion-text-center">{{cliente?.nome}}</h2>
+        <p class="ion-text-center">{{cliente?.email}}</p>
+      </ion-col>
+    </ion-row>
+
+    <ion-card *ngIf="editImage">
+      <ion-card-header>
+        Enviar imagem de perfil
+      </ion-card-header>
+      <ion-item *ngIf="picture">
+        <img [src]="picture">
+      </ion-item>
+      <ion-item>
+        <ion-button (click)="getCameraPicture()" [disabled]="cameraOn">Camera</ion-button>
+        <ion-button (click)="getGalleryPicture()" [disabled]="cameraOn">Galeria</ion-button>
+        <ion-button *ngIf="picture" (click)="sendPicture()">Enviar imagem</ion-button>
+        <ion-button *ngIf="picture" (click)="cancel()">Descartar imagem</ion-button>
+      </ion-item>
+    </ion-card>
+
+
+    <div class="clear"></div>
+
+    <div style="text-align: left; padding-left: 6%;padding-top: 10%">
+      <ion-item class="input-email">
+        <ion-label position="stacked">E-mail:</ion-label>
+        <p *ngIf="!editUser" class="ion-text">{{cliente.email}}</p>
+        <ion-input *ngIf="editUser" class="ion-text" type="text" name="email"
+                   placeholder="{{cliente.email}}"></ion-input>
+      </ion-item>
+      <div class="clear"></div>
+
+      <ion-item class="input-senha">
+        <ion-label position="stacked">Senha:</ion-label>
+        <p *ngIf="!editUser" class="ion-text">********</p>
+        <ion-input *ngIf="editUser" class="ion-text" type="text" placeholder="*********"></ion-input>
+      </ion-item>
+      <div class="clear"></div>
+
+      <ion-row>
+
+        <ion-col>
+          <ion-item class="input-endereco">
+            <ion-label position="stacked">Endereço:</ion-label>
+            <p *ngIf="!editUser" class="ion-text">{{endereco[0].logradouro}}</p>
+            <ion-input *ngIf="editUser" class="ion-text" type="text"
+                       placeholder="{{endereco[0].logradouro}}"></ion-input>
+
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item class="input-numero">
+            <ion-label position="stacked">Numero:</ion-label>
+            <p *ngIf="!editUser" class="ion-text">{{endereco[0].numero}}</p>
+            <ion-input *ngIf="editUser" class="ion-text" type="text" placeholder="{{endereco[0].numero}}"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+
+        <ion-col>
+          <ion-item class="input-bairro">
+            <ion-label position="stacked">Bairro:</ion-label>
+            <p *ngIf="!editUser" class="ion-text">{{endereco[0].bairro}}</p>
+            <ion-input *ngIf="editUser" class="ion-text" type="text" placeholder="{{endereco[0].bairro}}"></ion-input>
+
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item class="input-cidade">
+            <ion-label position="stacked">Cidade:</ion-label>
+            <p *ngIf="!editUser" class="ion-text">{{endereco[0].cidade.nome}}</p>
+            <ion-input *ngIf="editUser" class="ion-text" type="text"
+                       placeholder="{{endereco[0].cidade.nome}}"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-button *ngIf="editUser" color="primary" (click)="salvarEdicao()">Salvar</ion-button>
+        </ion-col>
+        <ion-col>
+          <ion-button *ngIf="editUser" color="danger" (click)="cancelarEdicao()">Cancelar</ion-button>
+        </ion-col>
+      </ion-row>
+
+    </div>
+  </ion-grid>
+</ion-content>

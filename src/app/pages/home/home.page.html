@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar color="primary">
+
+    <ion-buttons slot="start">
+      <ion-menu-button style="color: white;padding-bottom: 25%" menu="main-menu"></ion-menu-button>
+    </ion-buttons>
+
+    <ion-searchbar class="searchbar" placeholder="Buscar"></ion-searchbar>
+
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <!--  lista de Produtores-->
+
+  <ion-list class="produtores">
+    <div (click)="goToProdutos(cliente)" class="cliente" *ngFor="let cliente of clientes" [ngClass]="cliente.active ? 'active' : ''">
+      <ion-avatar>
+        <ion-img [src]="cliente.imageUrl "></ion-img>
+      </ion-avatar>
+      <p class="ion-no-margin">{{cliente.nome}}</p>
+    </div>
+  </ion-list>
+
+  <div>
+    <h1 class="list-header">Popular</h1>
+    <ion-list class="produtores">
+      <div (click)="goToProdutos(cliente)" class="cliente" *ngFor="let cliente of clientes" [ngClass]="cliente.active ? 'active' : ''">
+        <ion-avatar>
+          <ion-img [src]="cliente.imageUrl "></ion-img>
+        </ion-avatar>
+        <p class="ion-no-margin">{{cliente.nome}}</p>
+      </div>
+    </ion-list>
+  </div>
+
+  <div>
+    <h1 class="list-header">Famosos no AgroAPP</h1>
+    <ion-list class="produtores">
+      <div (click)="goToProdutos(cliente)" class="cliente" *ngFor="let cliente of clientes" [ngClass]="cliente.active ? 'active' : ''">
+        <ion-avatar>
+          <ion-img [src]="cliente.imageUrl "></ion-img>
+        </ion-avatar>
+        <p class="ion-no-margin">{{cliente.nome}}</p>
+      </div>
+    </ion-list>
+  </div>
+
+</ion-content>

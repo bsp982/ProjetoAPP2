@@ -1,0 +1,102 @@
+<ion-header>
+  <ion-toolbar style="padding-left: 5%" color="primary">
+    <ion-buttons slot="start">
+      <ion-icon name="arrow-back-outline" style="color: white" (click)="dismiss()"></ion-icon>
+    </ion-buttons>
+
+    <ion-title>Endereço</ion-title>
+
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding" fullscreen>
+
+  <ion-grid>
+
+    <form>
+
+      <ion-item>
+        <ion-label position="floating">CEP</ion-label>
+        <ion-input class="ion-text-lowercase" type="text" name="cep" (focusout)="focusout($event)" [(ngModel)]="enderecoCompleto.code"
+        ></ion-input>
+<!--        <ion-fab-button id="botao"  class="button-submit" color="primary" type="submit" (click)="buscaCep(endereco.cep)">Enviar</ion-fab-button>-->
+
+      </ion-item>
+      <a style="padding-left: 7%; padding-top: 5%; font-size: 12px" href="https://buscacepinter.correios.com.br/app/endereco/index.php" >Nao sei meu CEP</a>
+      <div class="clear"></div>
+
+      <p class="form-error" *ngIf="cepErrorVisible">{{enderecoCompleto.message}}</p>
+
+
+
+      <div class="clear"></div>
+
+      <ion-item class="input-estado">
+        <ion-label position="floating">Estado</ion-label>
+        <ion-input disabled="true" class="ion-text" type="text" name="estado" [(ngModel)]="enderecoCompleto.state"
+        ></ion-input>
+      </ion-item>
+      <div class="clear"></div>
+
+      <ion-item class="input-cidade">
+        <ion-label position="floating">Cidade</ion-label>
+        <ion-input disabled="true" class="ion-text" type="text" name="cidade" [(ngModel)]="enderecoCompleto.city"
+        ></ion-input>
+      </ion-item>
+      <div class="clear"></div>
+
+      <!--      <p class="form-error" *ngIf="emailErroVisible">* Email Invalido.</p>-->
+
+
+      <ion-item class="input-bairro">
+        <ion-label position="floating">Bairro</ion-label>
+        <ion-input disabled="true" class="ion-text" type="text" name="bairro" [(ngModel)]="enderecoCompleto.district"
+        ></ion-input>
+      </ion-item>
+      <div class="clear"></div>
+
+
+      <ion-item class="input-logradouro">
+        <ion-label position="floating">Logradouro</ion-label>
+        <ion-input disabled="true" class="ion-text" type="text" name="logradouro" [(ngModel)]="enderecoCompleto.address"
+        ></ion-input>
+      </ion-item>
+      <div class="clear"></div>
+
+      <ion-item class="input-numero">
+        <ion-label position="floating">Numero</ion-label>
+        <ion-input class="ion-text" type="text" name="numero" [(ngModel)]="enderecoCompleto.number"
+        ></ion-input>
+      </ion-item>
+      <div class="clear"></div>
+
+      <ion-item class="input-complemento">
+        <ion-label position="floating">Complemento</ion-label>
+        <ion-input class="ion-text" type="text" name="complemento" [(ngModel)]="enderecoCompleto.complemento"
+        ></ion-input>
+      </ion-item>
+      <div class="clear"></div>
+
+      <ion-item>
+        <ion-label style="font-size: 15px">Termos de uso</ion-label>
+        <ion-checkbox [value]="termosDeUso" (click)="termoDeUsoOnChange($event)"color="primary" slot="start"></ion-checkbox>
+      </ion-item>
+
+      <ion-item>
+        <ion-label style="font-size: 15px">Política de privacidade</ion-label>
+        <ion-checkbox [value]="termosDePrivacidade" (click)="termoDePrivacidadeOnChange($event)" color="primary" slot="start"></ion-checkbox>
+      </ion-item>
+
+      <div class="clear"></div>
+
+
+      <ion-fab vertical="end" horizontal="end">
+        <ion-fab-button [disabled]="!termosDeUso || !termosDePrivacidade " class="button-submit" color="light" type="submit" (click)="cadastrar()">
+          <ion-icon id="seta" color="primary" name="arrow-forward"></ion-icon>
+        </ion-fab-button>
+      </ion-fab>
+
+      <div class="clear"></div>
+    </form>
+
+  </ion-grid>
+</ion-content>

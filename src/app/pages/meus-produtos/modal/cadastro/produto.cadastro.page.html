@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-button fill="clear" (click)="backToList()">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-title class="ion-text-center">{{title}}</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button fill="clear" (click)="removeProdut()">
+        <ion-icon name="trash-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <form>
+      <ion-item>
+        <img [src]="produto?.imageUrl || 'assets/imgs/imgNotFound.png'">
+      </ion-item>
+
+      <ion-item>
+        <ion-button style="width: 100vw" (click)="changeProductPicture(produto)">Adicionar Imagem</ion-button>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Nome</ion-label>
+        <ion-input type="text" name="nome" [(ngModel)]="produto.nome"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Descrição</ion-label>
+        <ion-textarea type="text" name="descricao" [(ngModel)]="produto.descricao"></ion-textarea>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Preço</ion-label>
+        <ion-input type="number" name="preco" [(ngModel)]="produto.preco"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Quantidade</ion-label>
+        <ion-input type="number" name="quantidade" [(ngModel)]="produto.quantidade"></ion-input>
+      </ion-item>
+
+    </form>
+  </ion-grid>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar  >
+    <ion-button expand="full" (click)="salvarProduto(produto)">
+      {{editOrNew}}
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>

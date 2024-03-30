@@ -1,0 +1,33 @@
+<ion-content>
+  <ion-header class="header-system">
+    <ion-toolbar>
+
+      <ion-buttons slot="start">
+        <ion-button fill="clear" (click)="backHome()">
+          <ion-icon name="arrow-back-outline" style="color: white"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+
+      <ion-title class="ion-text-center" style="color: white">Meus Produtos</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <!--Lista de Produtos deste Produtor-->
+
+  <div class="food-list">
+    <div class="card" *ngFor="let produto of listaProdutos" (click)="editProduto(produto)">
+      <ion-img [src]="produto?.imageUrl"></ion-img>
+
+      <div class="card-content">
+        <h3 class="title">{{produto?.nome}}</h3>
+        <h2 class="subtitle">{{produto?.preco|currency:'BRL'}}</h2>
+      </div>
+    </div>
+  </div>
+</ion-content>
+
+<ion-fab vertical="bottom" horizontal="end" (click)="newProdut()">
+  <ion-fab-button color="primary">
+    <ion-icon name="add-circle-outline"></ion-icon>
+  </ion-fab-button>
+</ion-fab>

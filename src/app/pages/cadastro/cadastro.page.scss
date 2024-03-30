@@ -1,0 +1,163 @@
+.cadastro-content {
+
+  ion-label {
+    color: black;
+  }
+
+  .div-senha {
+    margin-top: 15px;
+  }
+
+  .radioGroup {
+    margin-left: 43px;
+  }
+
+  ion-button {
+    border-radius: 20px;
+  }
+
+  .content {
+    background: transparent !important;
+    outline: none;
+  }
+
+  ion-item {
+    --background: transparent !important;
+    --color: transparent !important;
+    color: black;
+    border-bottom: 1px solid black !important;
+  }
+
+  .clear{
+    clear: both;
+  }
+}
+
+//error
+.form-error {
+  margin: 13px 15px 0 0 !important;
+  color: red;
+  font-size: 0.7rem;
+  text-align: right !important;
+}
+
+//estética-botões//
+.button-submit {
+  --transition: background-color, opacity 100ms linear;
+  --ripple-color: currentColor;
+  --border-radius: 50%;
+  --border-width: 0;
+  --border-style: none;
+  --padding-top: 0;
+  --padding-end: 0;
+  --padding-bottom: 0;
+  --padding-start: 0;
+  display: block;
+  width: 45px;
+  height: 45px;
+  position: relative;
+  left: -10px;
+  top: 10px;
+  text-align: center;
+  text-overflow: ellipsis;
+  text-transform: none;
+  white-space: nowrap;
+  -webkit-font-kerning: none;
+  font-kerning: none;
+}
+
+.ocultarSenha {
+  position: relative;
+  left: 20px;
+}
+
+.possuo-cadastro{
+  text-align: center;
+  font-size: 15px;
+  color: black;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 1024px){
+  .form-style-cadastro{
+    position: relative;
+    padding-top: 300px !important;
+    padding-bottom: 250px;
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: center;
+  }
+  .possuo-cadastro{
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-height: 768px){
+  .form-style-cadastro{
+    position: relative;
+    padding-top: 190px !important;
+    padding-bottom: 80px;
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: center;
+  }
+  .logoCadastro{
+    position: absolute;
+    left: 50%;
+    top: 16%;
+    transform: translate(-50%,-50%);
+    height: 150px;
+    width: auto;
+  }
+  .possuo-cadastro{
+    font-size: 15px;
+  }
+}
+
+@media screen and (max-height: 500px){
+  .form-style-cadastro{
+    position: relative;
+    padding-top: 190px !important;
+    padding-bottom: 80px;
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: center;
+  }
+  .logoCadastro{
+    position: absolute;
+    left: 50%;
+    top: 16%;
+    transform: translate(-50%,-50%);
+    height: 150px;
+    width: auto;
+  }
+  .possuo-cadastro{
+    font-size: 15px;
+  }
+}
+
+@media screen and (max-height: 400px){
+  .form-style-cadastro{
+    position: relative;
+    padding-top: 190px !important;
+    padding-bottom: 80px;
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: center;
+  }
+  .logoCadastro{
+    position: absolute;
+    left: 50%;
+    top: 16%;
+    transform: translate(-50%,-50%);
+    height: 150px;
+    width: auto;
+  }
+  .possuo-cadastro{
+    font-size: 15px;
+  }
+}
+
+@media screen and (max-height: 380px) {
+
+}
