@@ -1,17 +1,8 @@
-.toolbar-menu {
-  height: 230px;
-  opacity: 90%;
-  padding-top: 20px;
-  z-index: 9;
+.custom-menu {
+  --background: var(--ion-color-secondary);
+  //--background: green
 }
 
-.logo-menu {
-  width: 150px;
-  height: 150px;
-  position: absolute;
-  left: 50%;
-  top: 18%;
-  transform: translate(-50%, -50%);
-  color: white;
-  z-index: 10;
+.custom-content ion-label {
+  color: #ffffff; /* Cor branca */
 }
